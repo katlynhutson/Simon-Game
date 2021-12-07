@@ -1,0 +1,23 @@
+Psuedo-Code for HTML 
+
+- Make a header section inside the body to hold the how to play button and round counter 
+    - Create a button with an id of "how-to-play" and inner text of "HOW TO PLAY"
+    - Create a h2 with inner text of "ROUND: 0"
+
+- Make section of code in the body to hold the gameBoard using a div with an id of "game-board"
+    - Inside the game-baord div create 5 buttons 
+        - Give the first 2 and last 2 buttons a class of "colors" 
+        - Give the 1st button an id of "green"
+            - Give the button text that says 'GREEN' 
+            **(this text will initially be the same color as the background of the button but will toggle to white or black when selected by simon or the player)
+        - Give the 2nd button an id of "red"
+            - Give the button text that says 'RED'
+        - Give the 4th button an id of "yellow"
+            - Give the button text that says 'YELLOW'
+        - Give the 5th button an id of "blue" 
+            - Give the button text that says 'BLUE'
+        - Place the 3rd button in a div container with an id of 'title-circle'
+            - above the button make an h1 saying "SIMON"
+            - Give the button an id of "play" and text of "PLAY 
+
+        

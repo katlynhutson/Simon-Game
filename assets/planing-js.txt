@@ -1,0 +1,22 @@
+Psuedo-Code for JS 
+
+DECLARE objects for the 'player' and 'simon'
+
+DECLARE state variables for 'simonMoves', 'playerMoves', and 'loseState'. 
+
+REFERENCE 'gameBoard', 'howToPlayBtn', and 'playBtn'.
+
+ATTACH event listeners for the 'gameBoard', 'howToPlayBtn', and 'playBtn'.
+
+DECLARE event handler function for the 'gameBoard' event listener 
+ - What should happen when the 'gameBoard' field is clicked? 
+
+DECLARE event handler function for the 'howToPlayBtn' event listener 
+ - What should happen when the button is clicked? 
+
+DECLARE event handler function for the 'playBtn' event listener 
+ - What should happen when the button is clicked? 
+
+ 
+
+ 
