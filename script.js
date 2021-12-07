@@ -3,7 +3,7 @@ const player = {};
 const simon = {};
 /*----- app's state variables -----*/
 let simonMoves;
-let playerMoves;
+let playerMoves = [];
 let loseState;
 /*----- cached element references -----*/
 const gameBoard = document.querySelector('#game-board');
@@ -27,23 +27,28 @@ function colorsHandler(event) {
 		event.target.style.color = `black`;
 		// return the button to it's initial state
 		setTimeout(greenBtnToStableState, 2000);
+		// record which color was clicked in the playerMoves array
+		playerMoves.push('G');
 	}
 	if (event.target.id === 'red') {
 		event.target.style.color = `white`;
 		setTimeout(redBtnToStableState, 2000);
+		playerMoves.push('R');
 	}
 	if (event.target.id === 'yellow') {
 		event.target.style.color = `black`;
 		setTimeout(yellowBtnToStableState, 2000);
+		playerMoves.push('Y');
 	}
 	if (event.target.id === 'blue') {
 		event.target.style.color = `white`;
 		setTimeout(blueBtnToStableState, 2000);
+		playerMoves.push('B');
 	}
 }
 
 // make a function that return the color btn to its initial state
-function greenBtnToStableState() {
+function greenBtnToStableState(event) {
 	greenBtn.style.color = 'green';
 	console.log('yeah green');
 }
