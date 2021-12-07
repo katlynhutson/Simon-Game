@@ -17,7 +17,14 @@ DECLARE event handler function for the 'howToPlayBtn' event listener
  - What should happen when the button is clicked? 
 
 DECLARE event handler function for the 'playBtn' event listener 
- - What should happen when the button is clicked? 
+ - What should happen when the button is clicked?
+    - the gameplay should commence! 
+    - change into the game play function 
+
+DECLARE a function for gamePlay (without multiple round functionality)
+- change the round name to one 
+- Have 'Simon' choose a random order of the colors to flash 
+- Flash those colors 
 
  
 
