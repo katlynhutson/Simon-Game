@@ -1,1 +1,6 @@
 Psuedo-Code for CSS 
+
+- Make the green button's (#green) background color green and the text green
+- Make the red button's (#red) background color red and the text red
+- Make the yellow button's (#yellow) background color yellow and the text yellow
+- Make the blue button's (#blue) background color blue and the text blue
