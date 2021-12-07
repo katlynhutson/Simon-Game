@@ -10,6 +10,8 @@ ATTACH event listeners for the 'gameBoard', 'howToPlayBtn', and 'playBtn'.
 
 DECLARE event handler function for the 'gameBoard' event listener 
  - What should happen when the 'gameBoard' field is clicked? 
+    - Each color button should "flash" when clicked then return to their initial state
+    - When a button is clicked it should add a string to the playerMoves array
 
 DECLARE event handler function for the 'howToPlayBtn' event listener 
  - What should happen when the button is clicked? 
