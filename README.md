@@ -47,6 +47,8 @@ placeholder text
 
 ![Simon How To Play Modal](./assets/simon-wireframe-how-to-play.png)
 
+![Simon Color Indicated](./assets/simon-wireframe-color-indicated.png)
+
 ![Simon Lose State](./assets/simon-wireframe-lose-state.png)
 
 ## Unsolved Problems/Major Hurdles
