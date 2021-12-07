@@ -20,4 +20,6 @@ Psuedo-Code for HTML
             - above the button make an h1 saying "SIMON"
             - Give the button an id of "play" and text of "PLAY 
 
+- Make how to play modal 
+- Make lose state modal
         
