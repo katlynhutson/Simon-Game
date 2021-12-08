@@ -7,8 +7,10 @@ const yellowValue = '2';
 const blueValue = '3';
 /*----- app's state variables -----*/
 let simonMoves;
-let playerMoves = '';
+let simonArray;
+let playerMoves;
 let loseState;
+let roundCount = 0;
 /*----- cached element references -----*/
 
 const howToPlayBtn = document.querySelector('#how-to-play');
@@ -18,6 +20,8 @@ const greenBtn = document.querySelector('#green');
 const redBtn = document.querySelector('#red');
 const yellowBtn = document.querySelector('#yellow');
 const blueBtn = document.querySelector('#blue');
+const h2 = document.querySelector('h2');
+const h3 = document.querySelector('h3');
 
 /*----- event listeners -----*/
 
@@ -33,46 +37,53 @@ playBtn.addEventListener('click', playHandler);
 
 // handelers for each button
 
-//green button blicked
-function greenBtnHandler(event) {
-	event.target.style.background = `white`;
-	// return the button to it's initial state
-	setTimeout(greenBtnToStableState, 2000);
-	// record which color was clicked in the playerMoves string
+//green button clicked
+function greenBtnHandler() {
+	greenBtnFlash();
+	// record which color was clicked in the playerMoves string -----> THIS IDEA CAME FROM a one-on-one with Esin where she advised me to use a string rather than an array or an object to store the player choices
 	playerMoves = `${playerMoves}0`;
 }
 
-function redBtnHandler(event) {
-	event.target.style.background = `white`;
-	setTimeout(redBtnToStableState, 2000);
+function redBtnHandler() {
+	redBtnFlash();
 	playerMoves = `${playerMoves}1`;
 }
 
-function yellowBtnHandler(event) {
-	event.target.style.background = `white`;
-	setTimeout(yellowBtnToStableState, 2000);
+function yellowBtnHandler() {
+	yellowBtnFlash();
 	playerMoves = `${playerMoves}2`;
 }
 
-function blueBtnHandler(event) {
-	event.target.style.background = `white`;
-	setTimeout(blueBtnToStableState, 2000);
+function blueBtnHandler() {
+	blueBtnFlash();
 	playerMoves = `${playerMoves}3`;
 }
 
 // make functions that return the color btn to its initial state
-function greenBtnToStableState() {
-	greenBtn.style.background = 'green';
+function greenBtnFlash() {
+	greenBtn.style.background = `white`;
+	setTimeout(function () {
+		greenBtn.style.background = 'green';
+	}, 1000);
 }
 
-function redBtnToStableState() {
-	redBtn.style.background = 'red';
+function redBtnFlash() {
+	redBtn.style.background = `white`;
+	setTimeout(function () {
+		redBtn.style.background = 'red';
+	}, 1000);
 }
-function yellowBtnToStableState() {
-	yellowBtn.style.background = 'yellow';
+function yellowBtnFlash() {
+	yellowBtn.style.background = `white`;
+	setTimeout(function () {
+		yellowBtn.style.background = 'yellow';
+	}, 1000);
 }
-function blueBtnToStableState() {
-	blueBtn.style.background = 'blue';
+function blueBtnFlash() {
+	blueBtn.style.background = `white`;
+	setTimeout(function () {
+		blueBtn.style.background = 'blue';
+	}, 1000);
 }
 
 // function for is the how to play button is clicked
@@ -81,6 +92,54 @@ function howToPlayHandler(event) {
 }
 
 //function for if the play button is clicked
-function playHandler(event) {
-	console.log('sup');
+function playHandler() {
+	clearBeforeRound();
+	roundCount += 1;
+	console.log(roundCount);
+	h2.innerText = `Round: ${roundCount}`;
+	h3.innerText = `Repeat these ${roundCount + 1} colors`;
+	setTimeout(simonPicks, 2000);
+}
+
+function simonPicks() {
+	randomSimonMoves();
+	simonArray = simonMoves.split('');
+	console.log(simonArray);
+	flashSimonColors();
+}
+
+// function to randomize computer choices
+function randomSimonMoves() {
+	for (let i = 0; i < roundCount + 1; i++)
+		simonMoves = `${simonMoves}${Math.floor(Math.random() * 4)}`;
+}
+
+function clearBeforeRound() {
+	playerMoves = '';
+	simonMoves = '';
+	simonArray = [];
+}
+
+function flashSimonColors() {
+	for (let i = 0; i < simonArray.length; i++) {
+		delay(i);
+	}
+}
+
+function delay(i) {
+	setTimeout(() => {
+		if (simonArray[i] === `0`) {
+			greenBtnFlash();
+			console.log(`green`);
+		} else if (simonArray[i] === `1`) {
+			redBtnFlash();
+			console.log(`red`);
+		} else if (simonArray[i] === `2`) {
+			yellowBtnFlash();
+			console.log(`yellow`);
+		} else if (simonArray[i] === `3`) {
+			blueBtnFlash();
+			console.log(`blue`);
+		}
+	}, i * 2000);
 }
