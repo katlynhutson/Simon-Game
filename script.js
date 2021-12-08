@@ -1,12 +1,16 @@
 /*----- constants -----*/
 const player = {};
 const simon = {};
+const greenValue = '0';
+const redValue = '1';
+const yellowValue = '2';
+const blueValue = '3';
 /*----- app's state variables -----*/
 let simonMoves;
-let playerMoves = [];
+let playerMoves = '';
 let loseState;
 /*----- cached element references -----*/
-const gameBoard = document.querySelector('#game-board');
+
 const howToPlayBtn = document.querySelector('#how-to-play');
 const playBtn = document.querySelector('#play');
 // elements for each button -> I will hopefully refactor them out later
@@ -16,60 +20,67 @@ const yellowBtn = document.querySelector('#yellow');
 const blueBtn = document.querySelector('#blue');
 
 /*----- event listeners -----*/
-gameBoard.addEventListener('click', colorsHandler);
+
+greenBtn.addEventListener('click', greenBtnHandler);
+redBtn.addEventListener('click', redBtnHandler);
+yellowBtn.addEventListener('click', yellowBtnHandler);
+blueBtn.addEventListener('click', blueBtnHandler);
+
 howToPlayBtn.addEventListener('click', howToPlayHandler);
 playBtn.addEventListener('click', playHandler);
+
 /*----- functions -----*/
-// handles if a color button is clicked
-function colorsHandler(event) {
-	if (event.target.id === 'green') {
-		// make the button 'toggle'
-		event.target.style.color = `black`;
-		// return the button to it's initial state
-		setTimeout(greenBtnToStableState, 2000);
-		// record which color was clicked in the playerMoves array
-		playerMoves.push('G');
-	}
-	if (event.target.id === 'red') {
-		event.target.style.color = `white`;
-		setTimeout(redBtnToStableState, 2000);
-		playerMoves.push('R');
-	}
-	if (event.target.id === 'yellow') {
-		event.target.style.color = `black`;
-		setTimeout(yellowBtnToStableState, 2000);
-		playerMoves.push('Y');
-	}
-	if (event.target.id === 'blue') {
-		event.target.style.color = `white`;
-		setTimeout(blueBtnToStableState, 2000);
-		playerMoves.push('B');
-	}
+
+// handelers for each button
+
+//green button blicked
+function greenBtnHandler(event) {
+	event.target.style.background = `white`;
+	// return the button to it's initial state
+	setTimeout(greenBtnToStableState, 2000);
+	// record which color was clicked in the playerMoves string
+	playerMoves = `${playerMoves}0`;
 }
 
-// make a function that return the color btn to its initial state
-function greenBtnToStableState(event) {
-	greenBtn.style.color = 'green';
-	console.log('yeah green');
+function redBtnHandler(event) {
+	event.target.style.background = `white`;
+	setTimeout(redBtnToStableState, 2000);
+	playerMoves = `${playerMoves}1`;
+}
+
+function yellowBtnHandler(event) {
+	event.target.style.background = `white`;
+	setTimeout(yellowBtnToStableState, 2000);
+	playerMoves = `${playerMoves}2`;
+}
+
+function blueBtnHandler(event) {
+	event.target.style.background = `white`;
+	setTimeout(blueBtnToStableState, 2000);
+	playerMoves = `${playerMoves}3`;
+}
+
+// make functions that return the color btn to its initial state
+function greenBtnToStableState() {
+	greenBtn.style.background = 'green';
 }
 
 function redBtnToStableState() {
-	redBtn.style.color = 'red';
-	console.log('yeah red');
+	redBtn.style.background = 'red';
 }
 function yellowBtnToStableState() {
-	yellowBtn.style.color = 'yellow';
-	console.log('yeah yellow');
+	yellowBtn.style.background = 'yellow';
 }
 function blueBtnToStableState() {
-	blueBtn.style.color = 'blue';
-	console.log('yeah blue');
+	blueBtn.style.background = 'blue';
 }
 
+// function for is the how to play button is clicked
 function howToPlayHandler(event) {
 	console.log('yo');
 }
 
+//function for if the play button is clicked
 function playHandler(event) {
 	console.log('sup');
 }
