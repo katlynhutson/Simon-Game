@@ -21,7 +21,8 @@ const redBtn = document.querySelector('#red');
 const yellowBtn = document.querySelector('#yellow');
 const blueBtn = document.querySelector('#blue');
 const h2 = document.querySelector('h2');
-const h3 = document.querySelector('h3');
+const numColors = document.querySelector('#number-colors');
+const time = document.querySelector('#time');
 
 /*----- event listeners -----*/
 
@@ -64,26 +65,26 @@ function greenBtnFlash() {
 	greenBtn.style.background = `white`;
 	setTimeout(function () {
 		greenBtn.style.background = 'green';
-	}, 1000);
+	}, 500);
 }
 
 function redBtnFlash() {
 	redBtn.style.background = `white`;
 	setTimeout(function () {
 		redBtn.style.background = 'red';
-	}, 1000);
+	}, 500);
 }
 function yellowBtnFlash() {
 	yellowBtn.style.background = `white`;
 	setTimeout(function () {
 		yellowBtn.style.background = 'yellow';
-	}, 1000);
+	}, 500);
 }
 function blueBtnFlash() {
 	blueBtn.style.background = `white`;
 	setTimeout(function () {
 		blueBtn.style.background = 'blue';
-	}, 1000);
+	}, 500);
 }
 
 // function for is the how to play button is clicked
@@ -95,10 +96,26 @@ function howToPlayHandler(event) {
 function playHandler() {
 	clearBeforeRound();
 	roundCount += 1;
-	console.log(roundCount);
 	h2.innerText = `Round: ${roundCount}`;
-	h3.innerText = `Repeat these ${roundCount + 1} colors`;
+	numColors.innerText = `${roundCount + 1} colors`;
+	time.innerText = `${(roundCount + 2) ** 2} seconds`;
+
 	setTimeout(simonPicks, 2000);
+	setTimeout(compareMoves, (roundCount + 2) ** 2 * 1000);
+}
+
+// function countDown() {
+// 	for (let i = (roundCount + 2) ** 2; i === 0; i--) {
+// 		time.innerText = `${i} seconds`;
+// 	}
+// }
+
+function compareMoves() {
+	if (playerMoves === simonMoves) {
+		console.log('joe byron');
+	} else {
+		console.log('bing bong');
+	}
 }
 
 function simonPicks() {
@@ -126,6 +143,7 @@ function flashSimonColors() {
 	}
 }
 
+//delay the flash between simon choices so the order can be detected ---> THIS IDEA CAME FROM https://travishorn.com/delaying-foreach-iterations-2ebd4b29ad30 and https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop/44476626 I mostly used these resources for syntax debugging and structure inspiration.
 function delay(i) {
 	setTimeout(() => {
 		if (simonArray[i] === `0`) {
@@ -141,5 +159,5 @@ function delay(i) {
 			blueBtnFlash();
 			console.log(`blue`);
 		}
-	}, i * 2000);
+	}, i * 1000);
 }
