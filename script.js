@@ -6,11 +6,12 @@ const redValue = '1';
 const yellowValue = '2';
 const blueValue = '3';
 /*----- app's state variables -----*/
-let simonMoves;
+let simonMoves = '';
 let simonArray = [];
-let playerMoves;
+let playerMoves = '';
+let playerArray = [];
 let loseState;
-let roundCount = 0;
+let roundCount = 1;
 let flashingSimonColors = true;
 /*----- cached element references -----*/
 
@@ -24,6 +25,7 @@ const blueBtn = document.querySelector('#blue');
 const h2 = document.querySelector('h2');
 const numColors = document.querySelector('#number-colors');
 const time = document.querySelector('#time');
+const anotherRound = document.querySelector('#another-round');
 
 /*----- event listeners -----*/
 
@@ -45,21 +47,48 @@ function greenBtnHandler() {
 	// record which color was clicked in the playerMoves string -----> THIS IDEA CAME FROM a one-on-one with Esin where she advised me to use a string rather than an array or an object to store the player choices
 
 	playerMoves = `${playerMoves}0`;
+	let playerArray = playerMoves.split('');
+	console.log(playerArray);
+	console.log(roundCount + 1);
+	if (roundCount === playerArray.length) {
+		compareMoves();
+	}
 }
 
 function redBtnHandler() {
 	redBtnFlash();
 	playerMoves = `${playerMoves}1`;
+	playerArray = playerMoves.split('');
+	console.log(playerArray);
+	console.log(roundCount + 1);
+	if (roundCount === playerArray.length) {
+		console.log('you win');
+		compareMoves();
+	}
 }
 
 function yellowBtnHandler() {
 	yellowBtnFlash();
 	playerMoves = `${playerMoves}2`;
+	playerArray = playerMoves.split('');
+	console.log(playerArray);
+	console.log(roundCount + 1);
+	if (roundCount === playerArray.length) {
+		compareMoves();
+		console.log('you win');
+	}
 }
 
 function blueBtnHandler() {
 	blueBtnFlash();
 	playerMoves = `${playerMoves}3`;
+	let playerArray = playerMoves.split('');
+	console.log(playerArray);
+	console.log(roundCount + 1);
+	if (roundCount === playerArray.length) {
+		compareMoves();
+		console.log('you win');
+	}
 }
 
 // make functions that return the color btn to its initial state
@@ -96,18 +125,27 @@ function howToPlayHandler(event) {
 
 //function for if the play button is clicked
 function playHandler() {
-	clearBeforeRound();
-	roundCount += 1;
-	h2.innerText = `Round: ${roundCount}`;
-	numColors.innerText = `${roundCount + 1} colors`;
-	time.innerText = `Ready? Set?`;
-	setTimeout(simonPicks, 2000);
-
-	setTimeout(enableBtns, (roundCount + 1) * 2000);
-	// find a better way to do this later
-	setTimeout(compareMoves, (roundCount + 1) * 4 * 1000);
+	play();
 }
 
+function play() {
+	clearBeforeRound();
+	setUpRound();
+	setTimeout(simonPicks, 2000);
+	setTimeout(enableBtns, (roundCount + 1) * 1200);
+	// find a better way to do this later
+
+	// setTimeout(compareMoves, (roundCount + 1) * 4 * 1000);
+}
+
+function setUpRound() {
+	h2.innerText = `Level: ${roundCount}`;
+	numColors.innerText = `${roundCount + 1} colors`;
+	time.innerText = `Ready? Set?`;
+	roundCount += 1;
+}
+
+//---> THIS IDEA CAME FROM https://stackoverflow.com/questions/11719961/javascript-remove-disabled-attribute-from-html-input
 function enableBtns() {
 	console.log('hi');
 	greenBtn.disabled = false;
@@ -120,7 +158,11 @@ function enableBtns() {
 function compareMoves() {
 	if (playerMoves === simonMoves) {
 		alert('what do you want? a cookie?');
+		anotherRound.innerText = 'Next Level?';
 		playBtn.disabled = false;
+		playerMoves = '';
+		simonMoves = '';
+		simonArray = [];
 	} else {
 		youLose();
 		console.log('wrong answer');
@@ -137,29 +179,21 @@ function refreshPage() {
 }
 
 function simonPicks() {
-	for (let i = 0; i < roundCount + 1; i++)
+	for (let i = 0; i < roundCount; i++)
 		simonMoves = `${simonMoves}${Math.floor(Math.random() * 4)}`;
 	simonArray = simonMoves.split('');
 	console.log(simonArray);
 	flashSimonColors();
 }
 
-// function to randomize computer choices
-// function randomSimonMoves() {
-// 	for (let i = 0; i < roundCount + 1; i++)
-// 		simonMoves = `${simonMoves}${Math.floor(Math.random() * 4)}`;
-// }
-
 function clearBeforeRound() {
-	playerMoves = '';
-	simonMoves = '';
-	simonArray = [];
 	playBtn.disabled = true;
 	flashingSimonColors = true;
 	greenBtn.disabled = true;
 	redBtn.disabled = true;
 	yellowBtn.disabled = true;
 	blueBtn.disabled = true;
+	simonArray = [];
 }
 
 // ---> THIS IDEA CAME FROM https://stackoverflow.com/questions/9729695/is-there-a-way-to-check-if-a-function-is-currently-running-in-jquery/9729728 to make a state variable for a flashing function.
