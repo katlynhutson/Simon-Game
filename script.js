@@ -7,10 +7,11 @@ const yellowValue = '2';
 const blueValue = '3';
 /*----- app's state variables -----*/
 let simonMoves;
-let simonArray;
+let simonArray = [];
 let playerMoves;
 let loseState;
 let roundCount = 0;
+let flashingSimonColors = true;
 /*----- cached element references -----*/
 
 const howToPlayBtn = document.querySelector('#how-to-play');
@@ -42,6 +43,7 @@ playBtn.addEventListener('click', playHandler);
 function greenBtnHandler() {
 	greenBtnFlash();
 	// record which color was clicked in the playerMoves string -----> THIS IDEA CAME FROM a one-on-one with Esin where she advised me to use a string rather than an array or an object to store the player choices
+
 	playerMoves = `${playerMoves}0`;
 }
 
@@ -98,45 +100,69 @@ function playHandler() {
 	roundCount += 1;
 	h2.innerText = `Round: ${roundCount}`;
 	numColors.innerText = `${roundCount + 1} colors`;
-	time.innerText = `${(roundCount + 2) ** 2} seconds`;
-
+	time.innerText = `Ready? Set?`;
 	setTimeout(simonPicks, 2000);
-	setTimeout(compareMoves, (roundCount + 2) ** 2 * 1000);
+
+	setTimeout(enableBtns, (roundCount + 1) * 2000);
+	// find a better way to do this later
+	setTimeout(compareMoves, (roundCount + 1) * 4 * 1000);
 }
 
-// function countDown() {
-// 	for (let i = (roundCount + 2) ** 2; i === 0; i--) {
-// 		time.innerText = `${i} seconds`;
-// 	}
-// }
+function enableBtns() {
+	console.log('hi');
+	greenBtn.disabled = false;
+	redBtn.disabled = false;
+	yellowBtn.disabled = false;
+	blueBtn.disabled = false;
+	time.innerText = 'GO!';
+}
 
 function compareMoves() {
 	if (playerMoves === simonMoves) {
-		console.log('joe byron');
+		alert('what do you want? a cookie?');
+		playBtn.disabled = false;
 	} else {
-		console.log('bing bong');
+		youLose();
+		console.log('wrong answer');
 	}
 }
 
+function youLose() {
+	alert(`looks like ya messed up somewhere ${playerMoves}`);
+	refreshPage();
+}
+
+function refreshPage() {
+	location.reload();
+}
+
 function simonPicks() {
-	randomSimonMoves();
+	for (let i = 0; i < roundCount + 1; i++)
+		simonMoves = `${simonMoves}${Math.floor(Math.random() * 4)}`;
 	simonArray = simonMoves.split('');
 	console.log(simonArray);
 	flashSimonColors();
 }
 
 // function to randomize computer choices
-function randomSimonMoves() {
-	for (let i = 0; i < roundCount + 1; i++)
-		simonMoves = `${simonMoves}${Math.floor(Math.random() * 4)}`;
-}
+// function randomSimonMoves() {
+// 	for (let i = 0; i < roundCount + 1; i++)
+// 		simonMoves = `${simonMoves}${Math.floor(Math.random() * 4)}`;
+// }
 
 function clearBeforeRound() {
 	playerMoves = '';
 	simonMoves = '';
 	simonArray = [];
+	playBtn.disabled = true;
+	flashingSimonColors = true;
+	greenBtn.disabled = true;
+	redBtn.disabled = true;
+	yellowBtn.disabled = true;
+	blueBtn.disabled = true;
 }
 
+// ---> THIS IDEA CAME FROM https://stackoverflow.com/questions/9729695/is-there-a-way-to-check-if-a-function-is-currently-running-in-jquery/9729728 to make a state variable for a flashing function.
 function flashSimonColors() {
 	for (let i = 0; i < simonArray.length; i++) {
 		delay(i);
