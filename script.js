@@ -50,8 +50,9 @@ function greenBtnHandler() {
 	let playerArray = playerMoves.split('');
 	console.log(playerArray);
 	console.log(roundCount + 1);
+	//-----> THIS IDEA CAME FROM a one on one with zoe in which she advised me to call compare moves from my game button event listeners rather than my play function to eliminate my timing issue
 	if (roundCount === playerArray.length) {
-		compareMoves();
+		setTimeout(compareMoves, 1000);
 	}
 }
 
@@ -63,7 +64,7 @@ function redBtnHandler() {
 	console.log(roundCount + 1);
 	if (roundCount === playerArray.length) {
 		console.log('you win');
-		compareMoves();
+		setTimeout(compareMoves, 1000);
 	}
 }
 
@@ -74,7 +75,7 @@ function yellowBtnHandler() {
 	console.log(playerArray);
 	console.log(roundCount + 1);
 	if (roundCount === playerArray.length) {
-		compareMoves();
+		setTimeout(compareMoves, 1000);
 		console.log('you win');
 	}
 }
@@ -86,7 +87,7 @@ function blueBtnHandler() {
 	console.log(playerArray);
 	console.log(roundCount + 1);
 	if (roundCount === playerArray.length) {
-		compareMoves();
+		setTimeout(compareMoves, 1000);
 		console.log('you win');
 	}
 }
@@ -139,9 +140,8 @@ function play() {
 }
 
 function setUpRound() {
-	h2.innerText = `Level: ${roundCount}`;
-	numColors.innerText = `${roundCount + 1} colors`;
-	time.innerText = `Ready? Set?`;
+	h2.innerText = `LEVEL: ${roundCount}`;
+	numColors.innerText = `${roundCount + 1} COLORS`;
 	roundCount += 1;
 }
 
@@ -152,13 +152,14 @@ function enableBtns() {
 	redBtn.disabled = false;
 	yellowBtn.disabled = false;
 	blueBtn.disabled = false;
-	time.innerText = 'GO!';
+	time.innerText = 'GO';
 }
 
 function compareMoves() {
 	if (playerMoves === simonMoves) {
 		alert('what do you want? a cookie?');
-		anotherRound.innerText = 'Next Level?';
+		anotherRound.innerText = 'NEXT LEVEL?';
+		time.innerText = 'WAIT';
 		playBtn.disabled = false;
 		playerMoves = '';
 		simonMoves = '';

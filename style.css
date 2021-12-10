@@ -1,9 +1,14 @@
 * {
-	border: solid black 2px;
+	/* border: solid black 2px; */
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .colors {
 	color: black;
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+	font-size: 40px;
 }
 
 #green {
@@ -20,4 +25,40 @@
 
 #blue {
 	background-color: blue;
+}
+
+#title-circle-container {
+	display: flex;
+	justify-content: center;
+}
+
+#title-circle {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+	align-items: center;
+}
+h1 {
+	border-radius: 50%;
+	text-align: center;
+}
+
+#game-updates {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	text-align: center;
+}
+
+#yellow-blue {
+	display: flex;
+	justify-content: space-around;
+}
+
+#green-red {
+	display: flex;
+	justify-content: space-around;
 }
