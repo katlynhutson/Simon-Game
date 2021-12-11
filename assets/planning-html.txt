@@ -21,5 +21,22 @@ Psuedo-Code for HTML
             - Give the button an id of "play" and text of "PLAY 
 
 - Make how to play modal 
+    Text to be contained in the how to play modal: 
+    "HOW TO PLAY SIMON: 
+
+    Simon is a memory-based game in which 'Simon' presses colors in a particular order, then the player presses those same colors in the same order.
+
+    If the player succeeds at mimicking Simon, they may proceed into the next level where Simon will press one more color than the last level. 
+
+    If the player makes a mistake, they are forced to restart the game. 
+
+    To start the game, press play. Wait for Simon to take their turn. When it is your turn, click the color buttons in the same order they were clicked by Simon. 
+    
+    If you chose correctly, press play to start the next level. 
+    
+    If you chose incorrectly, the game will indicate "INCORRECT" in red, and the page will be auto-refreshed after 3 seconds. 
+    
+    This browser-based game is harkening back to the 80's handheld Hasboro game with the same/similar functionality!" 
+
 - Make lose state modal
         

@@ -25,8 +25,7 @@ const blueBtn = document.querySelector('#blue');
 
 // pluck the headings out of the html
 const levelText = document.querySelector('#level');
-const numColors = document.querySelector('#number-colors');
-const go = document.querySelector('#go');
+const playerTurn = document.querySelector('#player-turn');
 const anotherLevel = document.querySelector('#another-level');
 
 /*----- event listeners -----*/
@@ -59,7 +58,7 @@ function greenBtnHandler() {
 
 	//-----> THIS IDEA CAME FROM a one on one with zoe in which she advised me to call compare moves from my color button event listeners rather than my play button event listener to eliminate my timing issue
 	//if the amount of colors simon just indicated is equal to the amount of moves the player has made ...
-	if (levelCount + 1 === playerArray.length) {
+	if (levelCount === playerArray.length) {
 		//compare the player moves to the simon moves BUT set it on a one second delay so the user still sees the animation on the last button color they clicked
 		setTimeout(compareMoves, 1000);
 	}
@@ -72,7 +71,7 @@ function redBtnHandler() {
 	playerMoves = `${playerMoves}1`;
 	playerArray = playerMoves.split('');
 
-	if (levelCount + 1 === playerArray.length) {
+	if (levelCount === playerArray.length) {
 		setTimeout(compareMoves, 1000);
 	}
 }
@@ -82,7 +81,7 @@ function yellowBtnHandler() {
 	playerMoves = `${playerMoves}2`;
 	playerArray = playerMoves.split('');
 
-	if (levelCount + 1 === playerArray.length) {
+	if (levelCount === playerArray.length) {
 		setTimeout(compareMoves, 1000);
 	}
 }
@@ -92,7 +91,7 @@ function blueBtnHandler() {
 	playerMoves = `${playerMoves}3`;
 	let playerArray = playerMoves.split('');
 
-	if (levelCount + 1 === playerArray.length) {
+	if (levelCount === playerArray.length) {
 		setTimeout(compareMoves, 1000);
 	}
 }
@@ -135,7 +134,7 @@ function compareMoves() {
 	//if the player moves string is identical to the simon moves string ...
 	if (playerMoves === simonMoves) {
 		//tell the user that they got the answer right
-		go.innerText = 'CORRECT';
+		playerTurn.innerText = 'CORRECT';
 		// visually prompt the user to hit the play button to begin the next level
 		anotherLevel.innerText = 'NEXT LEVEL?';
 		// enable the play button to be clicked so the user can start the next level
@@ -152,10 +151,11 @@ function compareMoves() {
 // lose state function
 function youLose() {
 	//alert the user that they lost
+	playerTurn.style.color = 'red';
+	playerTurn.innerText = 'INCORRECT';
 	//STRETCH make this whole thing a modal
-	alert(`YOU LOSE`);
-	//refresh the page so the game auto starts over after closing the alert
-	refreshPage();
+	//refresh the page after 3 seconds so the game starts over
+	setTimeout(refreshPage, 3000);
 }
 
 // make the refresh page function ---> I found this documentation on W3schools
@@ -170,7 +170,7 @@ function playHandler() {
 	//pick the random simon colors, then flash them in succession after a purposeful short delay after the headings loading
 	setTimeout(simonPicks, 1000);
 	// enable the color btns to be clicked by the user AFTER the simon buttons have been indicated using setTimeout and an estimate for how long it should take simon to display their answer based on the amount of colors being displayed.
-	setTimeout(enableBtns, (levelCount + 2) * 1000);
+	setTimeout(enableBtns, (levelCount + 1) * 1000);
 }
 
 //---> THIS IDEA CAME FROM https://stackoverflow.com/questions/11719961/javascript-remove-disabled-attribute-from-html-input
@@ -191,13 +191,11 @@ function setUpLevel() {
 	playBtn.disabled = true;
 	//change the level number being displayed to the current level
 	levelText.innerText = `LEVEL: ${levelCount}`;
-	//change the text that indicates how many colors that are about to be displayed based on the current level
-	numColors.innerText = `${levelCount + 1} COLORS`;
 	// empty out the player moves string and the simonMoves string
 	anotherLevel.innerText = '';
 	// change the visual to reflect that the user shouldn't click the color buttons and they are disabled
 	//they're 'waiting' for the next round to start and for simon to take their turn
-	go.innerText = '...';
+	playerTurn.innerText = "SIMON'S TURN";
 	playerMoves = '';
 	simonMoves = '';
 }
@@ -205,7 +203,7 @@ function setUpLevel() {
 //make a function that allows simon to pick an appropriate number of random colors (out of the four color options)
 function simonPicks() {
 	//pick one more color than the level number
-	for (let i = 0; i < levelCount + 1; i++) {
+	for (let i = 0; i < levelCount; i++) {
 		//use math.floor of math.random times 4 to pick a number between 0 and 4
 		//concatonate this value onto the existing simonmoves string
 		simonMoves = `${simonMoves}${Math.floor(Math.random() * 4)}`;
@@ -256,8 +254,12 @@ function enableBtns() {
 	yellowBtn.disabled = false;
 	blueBtn.disabled = false;
 	//indicate that the color buttons are enabled and the player should input their answers
-	go.innerText = 'GO';
+	playerTurn.innerText = 'YOUR TURN';
 }
 
 // function for when the how to play button is clicked
-function howToPlayHandler(event) {}
+function howToPlayHandler() {
+	alert(
+		"HOW TO PLAY SIMON: Simon is a memory-based game in which 'Simon' presses colors in a particular order, then the player presses those same colors in the same order. If the player succeeds at mimicking Simon, they may proceed into the next level where Simon will press one more color than the last level. If the player makes a mistake, they are forced to restart the game. To start the game, press play. Wait for Simon to take their turn. When it is your turn, click the color buttons in the same order they were clicked by Simon. If you chose correctly, press play to start the next level. If you chose incorrectly, the game will indicate 'INCORRECT' in red, and the page will be auto-refreshed after 3 seconds. This browser-based game is harkening back to the 80's handheld Hasboro game with the same/similar functionality!"
+	);
+}

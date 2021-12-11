@@ -1,5 +1,8 @@
+/* set the base style for mobile screens with widths that are less than 800px */
+
+/* set the font for the entire game */
+/* STRETCH add a custom google font */
 * {
-	/* border: solid black 2px; */
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -49,25 +52,28 @@
 	height: 100px;
 	width: 100px;
 	align-items: center;
-	background-color: grey;
+	background-color: lightgrey;
 }
 
-/* make the font size appropriate and reduce the bottom margin */
+/* make the font size appropriate and reduce the bottom margin for the simon title*/
 h1 {
 	font-size: 20px;
 	margin-bottom: 1px;
 }
 
+/* make the next level? pop-up the appropriate size and boldness and green so it's noticeable */
 #another-level {
 	font-size: 10px;
 	font-weight: lighter;
+	color: green;
 }
 
+/* make the play button an appropriate size */
 #play {
 	font-size: 10px;
 }
 
-/* display the game update */
+/* display the game updates at the appropriate size and margin with a light grey background*/
 #game-updates {
 	display: flex;
 	justify-content: space-around;
@@ -78,31 +84,37 @@ h1 {
 	margin-bottom: 10px;
 }
 
-#go {
+/* make the go message green and bold to draw the eye */
+#player-turn {
 	color: green;
 	font-weight: bolder;
 }
 
+/*  make the container holding the how-to-play button flex and centered with room between it and the yellow and blue buttons*/
 #how-to-container {
 	display: flex;
 	justify-content: center;
 	margin-top: 10px;
 }
 
+/* make the how to play button the right size */
 #how-to-play {
 	font-size: 10px;
 }
 
+/* orient the yellow and blue buttons */
 #yellow-blue {
 	display: flex;
 	justify-content: space-around;
 }
 
+/* orient the red and green buttons */
 #green-red {
 	display: flex;
 	justify-content: space-around;
 }
 
+/* resize and reorient the above for screens that are bigger than 800px wide */
 @media (min-width: 800px) {
 	.colors {
 		height: 150px;
