@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a browser-based game Simon game. Simon is a memory-based game in which 'Simon' presses colors in a particular order, then the player presses those same colors in the same order. If the player succeeds at mimicking Simon, they may proceed into the next level where Simon will press one more color than the last level. If the player makes a mistake, they are forced to restart the game. This browser-based game is harkening back to the 80's handheld Hasboro game with the same/similar functionality.
+This is a browser-based game Simon game. Simon is a memory-based game in which 'Simon' presses colors in a particular order, then the player presses those same colors in the same order. If the player succeeds at mimicking Simon, they may proceed into the next level where Simon will press one more color than the last level. If the player makes a mistake, they are forced to restart the game. This browser-based game is harkening back to the 80's handheld Hasbro game with the same/similar functionality.
 
 ## Technologies Used
 
@@ -14,7 +14,14 @@ This is a browser-based game Simon game. Simon is a memory-based game in which '
 
 ## Installation Instructions
 
-placeholder text
+- If you do not already have access to git commands refer to this link to install git on your device https://github.com/git-guides/install-git
+
+- Navigate to your terminal and make a directory to store the cloned files ``mkdir``
+- Navigate into the new directory ``cd``
+- Clone this repository to your own local repository (terminal) using the SSH or HTML key ``git clone``
+- Open the directory you stored your cloned repository to in Visual Studo code editor. `` code .``
+- Navigate to the bottom right of your VS window and click the "Go Live" icon. 
+- This will automatically redirect you to the local web browser game which you can use to view your edits using your VS code editor. 
 
 ## Planning Process
 
