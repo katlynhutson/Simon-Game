@@ -1,3 +1,153 @@
-body {
-	background-color: purple;
+/* set the base style for mobile screens with widths that are less than 800px */
+
+/* set the font for the entire game */
+/* STRETCH add a custom google font */
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* make the color buttons circles with black text and no border */
+.colors {
+	color: black;
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	font-size: 20px;
+	border: none;
+}
+
+/* give the green button a green color */
+#green {
+	background-color: green;
+}
+
+/* give the red button a red color */
+#red {
+	background-color: red;
+}
+
+/* give the yellow button a yellow color */
+#yellow {
+	background-color: yellow;
+}
+
+/* give the blue button a blue color */
+#blue {
+	background-color: blue;
+}
+
+/* make the title circle container flex and in the center of the page */
+#title-circle-container {
+	display: flex;
+	justify-content: center;
+}
+
+/* make the circle holding the title and the play button flex, orient them into columns, make them sit centrally, make it a grey circle the same size as the color buttons */
+#title-circle {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	border-radius: 50%;
+	border: none;
+	height: 100px;
+	width: 100px;
+	align-items: center;
+	background-color: lightgrey;
+}
+
+/* make the font size appropriate and reduce the bottom margin for the simon title*/
+h1 {
+	font-size: 20px;
+	margin-bottom: 1px;
+}
+
+/* make the next level? pop-up the appropriate size and boldness and green so it's noticeable */
+#another-level {
+	font-size: 10px;
+	font-weight: lighter;
+	color: green;
+}
+
+/* make the play button an appropriate size */
+#play {
+	font-size: 10px;
+}
+
+/* display the game updates at the appropriate size and margin with a light grey background*/
+#game-updates {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	font-size: 10px;
+	margin-top: 30px;
+	background: lightgray;
+	margin-bottom: 10px;
+}
+
+/* make the go message green and bold to draw the eye */
+#player-turn {
+	color: green;
+	font-weight: bolder;
+}
+
+/*  make the container holding the how-to-play button flex and centered with room between it and the yellow and blue buttons*/
+#how-to-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+/* make the how to play button the right size */
+#how-to-play {
+	font-size: 10px;
+}
+
+/* orient the yellow and blue buttons */
+#yellow-blue {
+	display: flex;
+	justify-content: space-around;
+}
+
+/* orient the red and green buttons */
+#green-red {
+	display: flex;
+	justify-content: space-around;
+}
+
+/* resize and reorient the above for screens that are bigger than 800px wide */
+@media (min-width: 800px) {
+	.colors {
+		height: 150px;
+		width: 150px;
+		font-size: 30px;
+	}
+	#title-circle {
+		height: 150px;
+		width: 150px;
+	}
+	h1 {
+		font-size: 30px;
+	}
+
+	#another-level {
+		font-size: 15px;
+	}
+
+	#play {
+		font-size: 15px;
+	}
+
+	#game-updates {
+		font-size: 20px;
+		margin-top: 30px;
+	}
+
+	#how-to-container {
+		margin-top: 20px;
+	}
+
+	#how-to-play {
+		font-size: 15px;
+		margin-top: 0px;
+	}
 }

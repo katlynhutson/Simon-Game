@@ -1,0 +1,45 @@
+Psuedo-Code for JS 
+
+DECLARE objects for the 'player' and 'simon'
+-- lol I really need to refactor AND ACTUALLY USE THESE
+DECLARE variables to store number representations of red yellow green and blue
+
+
+DECLARE state variables for 'simonMoves', 'playerMoves', and 'loseState'. 
+
+REFERENCE 'greenBtn' 'redBtn' 'yellowBtn, 'blueBtn' 'howToPlayBtn', 'playBtn', and 'h2'.
+
+ATTACH event listeners for the color buttons, 'howToPlayBtn', and 'playBtn'.
+
+DECLARE event handler function for the color buttons event listeners
+ - What should happen when a color button is clicked? 
+    - Each color button should "flash" when clicked then return to their initial state
+    - When a button is clicked it should add a string to the playerMoves string using concatenation
+
+DECLARE event handler function for the 'howToPlayBtn' event listener 
+ - What should happen when the button is clicked? 
+    - plan this out when I make this modal in HTML
+
+DECLARE event handler function for the 'playBtn' event listener 
+ - What should happen when the button is clicked?
+    - the gameplay should commence! 
+    - change into the game play function 
+
+DECLARE a function for gamePlay (without multiple round functionality)
+- change into the next round *** this is a stretch ignore this at first pass
+- change the round name to the applicable round name *** this is a stretch ignore this at first pass
+- Have 'Simon' choose a random order of the colors to flash 
+- Flash those colors 
+- store those color choices in simon's array 
+- wait for player clicks (maybe make a gameboard listener for this)
+- compare player choices to simon choices and determine if game could continue or if the game should end 
+- display the oops modal if the game ends
+
+DECLARE a function to make Simon pick an order of colors - hard code the number of them and revisit this later
+
+
+
+
+ 
+
+ 
