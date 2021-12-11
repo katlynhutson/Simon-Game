@@ -24,7 +24,7 @@ const yellowBtn = document.querySelector('#yellow');
 const blueBtn = document.querySelector('#blue');
 
 // pluck the headings out of the html
-const h2 = document.querySelector('h2');
+const levelText = document.querySelector('#level');
 const numColors = document.querySelector('#number-colors');
 const go = document.querySelector('#go');
 const anotherLevel = document.querySelector('#another-level');
@@ -65,7 +65,7 @@ function greenBtnHandler() {
 	}
 }
 
-//repeat this logic for the other 3 color buttons
+//repeat this logic for the other 3 color buttons - wet
 
 function redBtnHandler() {
 	redBtnFlash();
@@ -109,7 +109,7 @@ function greenBtnFlash() {
 	}, 500);
 }
 
-//repeat this logic for the other 3 color buttons
+//repeat this logic for the other 3 color buttons - wet
 
 function redBtnFlash() {
 	redBtn.style.background = `white`;
@@ -134,14 +134,10 @@ function blueBtnFlash() {
 function compareMoves() {
 	//if the player moves string is identical to the simon moves string ...
 	if (playerMoves === simonMoves) {
-		//alert the user that they got the answer right
-		//STRETCH convert this alert into a modal
-		alert('CORRECT');
+		//tell the user that they got the answer right
+		go.innerText = 'CORRECT';
 		// visually prompt the user to hit the play button to begin the next level
 		anotherLevel.innerText = 'NEXT LEVEL?';
-		// change the visual to reflect that the user shouldn't click the color buttons and they are disabled
-		//they're 'waiting' for the next round to start and for simon to take their turn
-		go.innerText = '...';
 		// enable the play button to be clicked so the user can start the next level
 		playBtn.disabled = false;
 		//disable the button colors because the user shouldn't be making any more choices and they won't actually effect the game.
@@ -194,10 +190,14 @@ function setUpLevel() {
 	//disable the play button until it's time to start the next level
 	playBtn.disabled = true;
 	//change the level number being displayed to the current level
-	h2.innerText = `LEVEL: ${levelCount}`;
+	levelText.innerText = `LEVEL: ${levelCount}`;
 	//change the text that indicates how many colors that are about to be displayed based on the current level
 	numColors.innerText = `${levelCount + 1} COLORS`;
 	// empty out the player moves string and the simonMoves string
+	anotherLevel.innerText = '';
+	// change the visual to reflect that the user shouldn't click the color buttons and they are disabled
+	//they're 'waiting' for the next round to start and for simon to take their turn
+	go.innerText = '...';
 	playerMoves = '';
 	simonMoves = '';
 }

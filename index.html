@@ -5,15 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>SIMON</title>
 </head>
 <body>
     <header>
-        <button id="how-to-play">HOW TO PLAY</button>
-        <div id='game-updates'>
-            <h2>LEVEL: </h2>
-            <h3 id='number-colors'> COLORS</h3>
-            <h3 id='go'>...</h3>
+       <div id='game-updates'>
+            <p id='level'>LEVEL: </p>
+            <p id='go'>...</p>
+            <p id='number-colors'> COLORS</p>
         </div>
     </header>
     <div id='green-red'>
@@ -30,6 +29,9 @@
     <div id='yellow-blue'>
         <button class="colors" id="yellow" disabled>YELLOW</button>
         <button class="colors" id="blue" disabled>BLUE</button>
+    </div>
+    <div id='how-to-container'>
+        <button id="how-to-play">HOW TO PLAY</button>
     </div>
     <script src="script.js"></script>
 </body>

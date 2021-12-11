@@ -3,57 +3,94 @@
 	font-family: Arial, Helvetica, sans-serif;
 }
 
+/* make the color buttons circles with black text and no border */
 .colors {
 	color: black;
 	border-radius: 50%;
-	height: 200px;
-	width: 200px;
-	font-size: 40px;
+	height: 100px;
+	width: 100px;
+	font-size: 20px;
 	border: none;
 }
 
+/* give the green button a green color */
 #green {
 	background-color: green;
 }
 
+/* give the red button a red color */
 #red {
 	background-color: red;
 }
 
+/* give the yellow button a yellow color */
 #yellow {
 	background-color: yellow;
 }
 
+/* give the blue button a blue color */
 #blue {
 	background-color: blue;
 }
 
+/* make the title circle container flex and in the center of the page */
 #title-circle-container {
 	display: flex;
 	justify-content: center;
 }
 
+/* make the circle holding the title and the play button flex, orient them into columns, make them sit centrally, make it a grey circle the same size as the color buttons */
 #title-circle {
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
 	border-radius: 50%;
-	border: 1px solid grey;
-	height: 200px;
-	width: 200px;
+	border: none;
+	height: 100px;
+	width: 100px;
 	align-items: center;
 	background-color: grey;
 }
+
+/* make the font size appropriate and reduce the bottom margin */
 h1 {
-	border-radius: 50%;
-	text-align: center;
+	font-size: 20px;
+	margin-bottom: 1px;
 }
 
+#another-level {
+	font-size: 10px;
+	font-weight: lighter;
+}
+
+#play {
+	font-size: 10px;
+}
+
+/* display the game update */
 #game-updates {
 	display: flex;
-	flex-flow: column;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	font-size: 10px;
+	margin-top: 30px;
+	background: lightgray;
+	margin-bottom: 10px;
+}
+
+#go {
+	color: green;
+	font-weight: bolder;
+}
+
+#how-to-container {
+	display: flex;
 	justify-content: center;
-	text-align: center;
+	margin-top: 10px;
+}
+
+#how-to-play {
+	font-size: 10px;
 }
 
 #yellow-blue {
@@ -64,4 +101,41 @@ h1 {
 #green-red {
 	display: flex;
 	justify-content: space-around;
+}
+
+@media (min-width: 800px) {
+	.colors {
+		height: 150px;
+		width: 150px;
+		font-size: 30px;
+	}
+	#title-circle {
+		height: 150px;
+		width: 150px;
+	}
+	h1 {
+		font-size: 30px;
+	}
+
+	#another-level {
+		font-size: 15px;
+	}
+
+	#play {
+		font-size: 15px;
+	}
+
+	#game-updates {
+		font-size: 20px;
+		margin-top: 30px;
+	}
+
+	#how-to-container {
+		margin-top: 20px;
+	}
+
+	#how-to-play {
+		font-size: 15px;
+		margin-top: 0px;
+	}
 }
