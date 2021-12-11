@@ -16,10 +16,9 @@ This is a browser-based game Simon game. Simon is a memory-based game in which '
 
 - If you do not already have access to git commands refer to this link to install git on your device https://github.com/git-guides/install-git
 
-- Navigate to your terminal and make a directory to store the cloned files ``mkdir``
-- Navigate into the new directory ``cd``
 - Clone this repository to your own local repository (terminal) using the SSH or HTML key ``git clone``
-- Open the directory you stored your cloned repository to in Visual Studo code editor. `` code .``
+- Navigate into the new directory ``cd Simon-Game``
+- Open the cloned files in Visual Studo code editor. `` code .``
 - Navigate to the bottom right of your VS window and click the "Go Live" icon. 
 - This will automatically redirect you to the local web browser game which you can use to view your edits using your VS code editor. 
 
