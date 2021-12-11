@@ -9,6 +9,7 @@
 	height: 200px;
 	width: 200px;
 	font-size: 40px;
+	border: none;
 }
 
 #green {
@@ -37,9 +38,11 @@
 	flex-flow: column;
 	justify-content: center;
 	border-radius: 50%;
+	border: 1px solid grey;
 	height: 200px;
 	width: 200px;
 	align-items: center;
+	background-color: grey;
 }
 h1 {
 	border-radius: 50%;
