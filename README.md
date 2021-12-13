@@ -73,3 +73,7 @@ placeholder text
 ## Major Hurdles
 
 - I encountered a bug early on in my game play building that allowed the player to cheat by inputting their answers in tandem with 'Simon' inputting their answers. In order to solve it I had to employ some tricky timing functions and change where I was calling my comparison function from. It also lead me in the direction of disabling and enabling my buttons to lesson the ambiguity of game play.
+
+## Unsolved Problems
+
+- I'd like the You Lose Modal to be more sophisticated and reset the game without losing the game memory and reloading the page.
