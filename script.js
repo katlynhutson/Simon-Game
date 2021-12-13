@@ -20,6 +20,11 @@ const howToPlayBtn = document.querySelector('#open-how-to-play');
 const howToPlayModal = document.querySelector('#how-to-play-modal');
 const howToPlayCloseBtn = document.querySelector('#how-to-play-close');
 
+//pluck the elements for the you lose modal out of the html
+const youLoseModal = document.querySelector('#you-lose-modal');
+const youLoseCloseBtn = document.querySelector('#you-lose-close');
+const youLoseLevel = document.querySelector('#you-lose-level');
+
 // pluck the buttons out of the html
 const playBtn = document.querySelector('#play');
 const greenBtn = document.querySelector('#green');
@@ -46,6 +51,9 @@ howToPlayBtn.addEventListener('click', openHowToPlayModal);
 
 //listen to the how to play closing button
 howToPlayCloseBtn.addEventListener('click', closeHowToPlayModal);
+
+//listen to the youLoseCloseBtn
+youLoseCloseBtn.addEventListener('click', closeYouLoseModal);
 
 //listen to the play button
 playBtn.addEventListener('click', playHandler);
@@ -160,9 +168,9 @@ function youLose() {
 	//alert the user that they lost
 	playerTurn.style.color = 'red';
 	playerTurn.innerText = 'INCORRECT';
-	//STRETCH make this whole thing a modal
-	//refresh the page after 3 seconds so the game starts over
-	setTimeout(refreshPage, 3000);
+	//open the you lose modal and send the user to the start screen when they lose
+	youLoseLevel.innerText = `YOU MADE IT TO: LEVEL ${levelCount}`;
+	openYouLoseModal();
 }
 
 // make the refresh page function ---> I found this documentation on W3schools
@@ -272,4 +280,15 @@ function openHowToPlayModal() {
 //function for what to do when the player tries to close the modal
 function closeHowToPlayModal() {
 	howToPlayModal.style.display = 'none';
+}
+
+// function to make you lose modal appear
+function openYouLoseModal() {
+	youLoseModal.style.display = 'block';
+}
+
+//function to make you lose modal close
+function closeYouLoseModal() {
+	youLoseModal.style.display = 'none';
+	refreshPage();
 }
