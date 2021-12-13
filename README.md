@@ -70,6 +70,6 @@ placeholder text
 
 ![Simon Lose State](./assets/simon-wireframe-lose-state.png)
 
-## Unsolved Problems/Major Hurdles
+## Major Hurdles
 
-The refactoring of my JavaScript post reaching my MVP goals has been difficult. I'm still working on reducing my javaScript code.
+- I encountered a bug early on in my game play building that allowed the player to cheat by inputting their answers in tandem with 'Simon' inputting their answers. In order to solve it I had to employ some tricky timing functions and change where I was calling my comparison function from. It also lead me in the direction of disabling and enabling my buttons to lesson the ambiguity of game play.
