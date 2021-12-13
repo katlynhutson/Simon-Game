@@ -58,7 +58,7 @@
 /* make the font size appropriate and reduce the bottom margin for the simon title*/
 h1 {
 	font-size: 20px;
-	margin-bottom: 1px;
+	margin-bottom: 0px;
 }
 
 /* make the next level? pop-up the appropriate size and boldness and green so it's noticeable */
@@ -66,22 +66,26 @@ h1 {
 	font-size: 10px;
 	font-weight: lighter;
 	color: green;
+	margin-top: 0px;
 }
 
 /* make the play button an appropriate size */
 #play {
 	font-size: 10px;
+	margin-bottom: 10px;
 }
 
 /* display the game updates at the appropriate size and margin with a light grey background*/
 #game-updates {
 	display: flex;
-	justify-content: space-around;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	font-size: 10px;
 	margin-top: 30px;
 	background: lightgray;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 /* make the go message green and bold to draw the eye */
@@ -90,15 +94,14 @@ h1 {
 	font-weight: bolder;
 }
 
-/*  make the container holding the how-to-play button flex and centered with room between it and the yellow and blue buttons*/
-#how-to-container {
+/* make the how to play button the right size */
+#how-to-play-container {
 	display: flex;
 	justify-content: center;
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
-/* make the how to play button the right size */
-#how-to-play {
+#open-how-to-play {
 	font-size: 10px;
 }
 
@@ -112,6 +115,39 @@ h1 {
 #green-red {
 	display: flex;
 	justify-content: space-around;
+}
+
+/* how to play modal styling  */
+/* I based this styling off of how I did it in the modals homework */
+#how-to-play-modal {
+	background-color: rgba(0, 0, 0, 0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+	display: none;
+}
+
+#how-to-play-textbox {
+	background-color: white;
+	height: 715px;
+	width: 250px;
+	border-radius: 2px;
+	margin: 150px auto;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	padding: 2%;
+	line-height: 120%;
+}
+
+#how-to-play-footer {
+	text-align: right;
+}
+
+h1 {
+	padding-bottom: 15px;
 }
 
 /* resize and reorient the above for screens that are bigger than 800px wide */
@@ -142,12 +178,14 @@ h1 {
 		margin-top: 30px;
 	}
 
-	#how-to-container {
-		margin-top: 20px;
-	}
-
-	#how-to-play {
-		font-size: 15px;
+	#how-to-play-container {
 		margin-top: 0px;
+	}
+	#open-how-to-play {
+		font-size: 15px;
+	}
+	#how-to-play-textbox {
+		height: 440px;
+		width: 550px;
 	}
 }
