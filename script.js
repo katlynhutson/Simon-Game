@@ -70,12 +70,15 @@ function greenBtnHandler() {
 	playerMoves = `${playerMoves}0`;
 	//split the string into an array to access the length of the string and compare the strings contained to the simon choices
 	let playerArray = playerMoves.split('');
-
+	//compare intial moves and taske to lose state if already wrong
+	if (playerArray.length < levelCount) {
+		compareMoves();
+	}
 	//-----> THIS IDEA CAME FROM a one on one with zoe in which she advised me to call compare moves from my color button event listeners rather than my play button event listener to eliminate my timing issue
 	//if the amount of colors simon just indicated is equal to the amount of moves the player has made ...
 	if (levelCount === playerArray.length) {
 		//compare the player moves to the simon moves BUT set it on a one second delay so the user still sees the animation on the last button color they clicked
-		setTimeout(compareMoves, 1000);
+		setTimeout(compareMovesFinal, 1000);
 	}
 }
 
@@ -85,9 +88,12 @@ function redBtnHandler() {
 	redBtnFlash();
 	playerMoves = `${playerMoves}1`;
 	playerArray = playerMoves.split('');
+	if (playerArray.length < levelCount) {
+		compareMoves();
+	}
 
 	if (levelCount === playerArray.length) {
-		setTimeout(compareMoves, 1000);
+		setTimeout(compareMovesFinal, 1000);
 	}
 }
 
@@ -95,9 +101,12 @@ function yellowBtnHandler() {
 	yellowBtnFlash();
 	playerMoves = `${playerMoves}2`;
 	playerArray = playerMoves.split('');
+	if (playerArray.length < levelCount) {
+		compareMoves();
+	}
 
 	if (levelCount === playerArray.length) {
-		setTimeout(compareMoves, 1000);
+		setTimeout(compareMovesFinal, 1000);
 	}
 }
 
@@ -105,9 +114,12 @@ function blueBtnHandler() {
 	blueBtnFlash();
 	playerMoves = `${playerMoves}3`;
 	let playerArray = playerMoves.split('');
+	if (playerArray.length < levelCount) {
+		compareMoves();
+	}
 
 	if (levelCount === playerArray.length) {
-		setTimeout(compareMoves, 1000);
+		setTimeout(compareMovesFinal, 1000);
 	}
 }
 
@@ -144,8 +156,17 @@ function blueBtnFlash() {
 	}, 500);
 }
 
-//make a function that will compare the simon moves to the player moves
+//function to copmpare inital player moves
 function compareMoves() {
+	for (let i = 0; i < playerArray.length; i++) {
+		if (playerArray[i] !== simonArray[i]) {
+			youLose();
+		}
+	}
+}
+
+//make a function that will compare the simon moves to the player moves
+function compareMovesFinal() {
 	//if the player moves string is identical to the simon moves string ...
 	if (playerMoves === simonMoves) {
 		//tell the user that they got the answer right
