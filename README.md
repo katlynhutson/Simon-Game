@@ -48,13 +48,13 @@ This is a browser-based game Simon game. Simon is a memory-based game in which '
 
 # Bronze
 
-- As a user, I want the lose screen and the how to play screen to be presented as modals, because they are more pleasing to the eye than prompts and alerts
+- As a user, I want the lose screen and the how to play screen to be presented as modals, because they are more pleasing to the eye than prompts and alerts.
 
 # Silver
 
-- As a user, I want the game to track my highscore and present it in the lose modal, so that I know if I've beat my own record
+- As a user, I want the game to track my highscore and present it in the lose modal, so that I know if I've beat my own record.
 
-- As a user, I want to automatically be re-directed to the lose screen as soon as I get one color wrong, so I don't have to enter random colors if i don't know the answer.
+- As a user, I want to automatically be re-directed to the lose screen as soon as I get one color wrong, so I don't have to enter random colors if I don't know the answer.
 
 # Gold
 
@@ -63,6 +63,8 @@ This is a browser-based game Simon game. Simon is a memory-based game in which '
 - As a user I want the message that displays at the end of the game to be a random encouraging message, so that the sting of the loss is soothed and the game stays feeling fresh.
 
 - As a user I want to choose the speed in which the buttons are indicated by difficulty level, so I can have more customization over my gameplay.
+
+- As a user I want an option to play this game in a fashion accessible to screen readers, so that it's more accessible.
 
 ### Wireframes
 
@@ -76,4 +78,4 @@ This is a browser-based game Simon game. Simon is a memory-based game in which '
 
 ## Unsolved Problems/Major Hurdles
 
-The refactoring of my JavaScript post reaching my MVP goals has been difficult. I want my javaScript code to be as dry as possible. Hopefully this refactoring will be complete before submission time.
+The refactoring of my JavaScript post reaching my MVP goals has been difficult. I'm still working on reducing my javaScript code.

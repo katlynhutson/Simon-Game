@@ -15,8 +15,12 @@ let levelCount = 0;
 
 /*----- cached element references -----*/
 
+// pluck the elements for the how to play modal out of the html
+const howToPlayBtn = document.querySelector('#open-how-to-play');
+const howToPlayModal = document.querySelector('#how-to-play-modal');
+const howToPlayCloseBtn = document.querySelector('#how-to-play-close');
+
 // pluck the buttons out of the html
-const howToPlayBtn = document.querySelector('#how-to-play');
 const playBtn = document.querySelector('#play');
 const greenBtn = document.querySelector('#green');
 const redBtn = document.querySelector('#red');
@@ -38,7 +42,10 @@ yellowBtn.addEventListener('click', yellowBtnHandler);
 blueBtn.addEventListener('click', blueBtnHandler);
 
 //listen to the how to play button
-howToPlayBtn.addEventListener('click', howToPlayHandler);
+howToPlayBtn.addEventListener('click', openHowToPlayModal);
+
+//listen to the how to play closing button
+howToPlayCloseBtn.addEventListener('click', closeHowToPlayModal);
 
 //listen to the play button
 playBtn.addEventListener('click', playHandler);
@@ -257,9 +264,12 @@ function enableBtns() {
 	playerTurn.innerText = 'YOUR TURN';
 }
 
-// function for when the how to play button is clicked
-function howToPlayHandler() {
-	alert(
-		"HOW TO PLAY SIMON: Simon is a memory-based game in which 'Simon' presses colors in a particular order, then the player presses those same colors in the same order. If the player succeeds at mimicking Simon, they may proceed into the next level where Simon will press one more color than the last level. If the player makes a mistake, they are forced to restart the game. To start the game, press play. Wait for Simon to take their turn. When it is your turn, click the color buttons in the same order they were clicked by Simon. If you chose correctly, press play to start the next level. If you chose incorrectly, the game will indicate 'INCORRECT' in red, and the page will be auto-refreshed after 3 seconds. This browser-based game is harkening back to the 80's handheld Hasboro game with the same/similar functionality!"
-	);
+// function for when the how to play button is clicked to make modal appear
+function openHowToPlayModal() {
+	howToPlayModal.style.display = 'block';
+}
+
+//function for what to do when the player tries to close the modal
+function closeHowToPlayModal() {
+	howToPlayModal.style.display = 'none';
 }

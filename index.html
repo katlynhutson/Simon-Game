@@ -28,10 +28,38 @@
     <div id='yellow-blue'>
         <button class="colors" id="yellow" disabled>YELLOW</button>
         <button class="colors" id="blue" disabled>BLUE</button>
+    <!-- Modal inspired by modal homework -->
     </div>
-    <div id='how-to-container'>
-        <button id="how-to-play">HOW TO PLAY</button>
+    <div id='how-to-play-container'>
+        <button id="open-how-to-play" class='how-to-play-modal-buttons'>HOW TO PLAY</button>
     </div>
+    <div id="how-to-play-modal">
+        <div id='how-to-play-textbox'>
+            <h1>HOW TO PLAY SIMON</h1>
+
+            <p>Simon is a memory-based game in which 'Simon' presses colors in a particular order, then the player presses those same
+            colors in the same order.</p>
+            
+            <p>If the player succeeds at mimicking Simon, they may proceed into the next level where Simon will press one more color
+            than the last level.</p>
+            
+            <p>If the player makes a mistake, they are forced to restart the game.</p>
+            
+            <p>To start the game, press play. Wait for Simon to take their turn. When it is your turn, click the color buttons in the
+            same order they were clicked by Simon.</p>
+            
+            <p>If you chose correctly, press play to start the next level.</p>
+            
+            <p>If you chose incorrectly, the game will indicate "INCORRECT" in red, and the page will be auto-refreshed after 3
+            seconds.</p>
+            
+            <p>This browser-based game is harkening back to the 80's handheld Hasboro game with the same/similar functionality!</p>
+            <div id="how-to-play-footer">
+                <button class='how-to-play-modal-buttons' id='how-to-play-close' >CLOSE</button>
+            </div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
